@@ -4,13 +4,16 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "youcan app dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "youcan": "youcan"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@youcan/app": "1.1.0-beta.2",
+    "@youcan/cli": "1.1.0-beta.2",
     "nuxt": "^3.8.2"
   }
 }
