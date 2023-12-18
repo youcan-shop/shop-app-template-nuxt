@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "youcan app dev",
+    "migrate": "prisma migrate dev --name init",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -23,6 +24,9 @@
   },
   "dependencies": {
     "@prisma/client": "5.7.0",
+    "@youcan/ui-core": "^2.4.13",
+    "@youcan/ui-icons": "^2.4.13",
+    "@youcan/ui-vue3": "^2.4.13",
     "jsonwebtoken": "^9.0.2"
   }
 }
