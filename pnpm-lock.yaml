@@ -32,11 +32,11 @@ devDependencies:
     specifier: ^0.29.9
     version: 0.29.9
   '@youcan/app':
-    specifier: latest
-    version: 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+    specifier: 1.1.0-beta.7
+    version: 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
   '@youcan/cli':
-    specifier: latest
-    version: 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+    specifier: 1.1.0-beta.7
+    version: 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
   nuxt:
     specifier: ^3.8.2
     version: 3.8.2(@types/node@20.10.5)(typescript@5.3.3)(vite@5.0.10)
@@ -3266,11 +3266,11 @@ packages:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
     dev: true
 
-  /@youcan/app@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-dF9mmF1rQFqqS3t2tfn1xpt45jvA76YJq41j5KeJJb4NvyMcSRYC3tAkyFP4zuysSHdUdXdWw/5FwL693qrRLA==}
+  /@youcan/app@1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-8ny+FTkq/Yxxr9al45oMjUI3JnI2DNX3LzvtDEVUzka5D3QbSywAaUx4oZ4/51j5CndqbL5pept8TW5oy7SR5g==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3279,8 +3279,8 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/cli-kit@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-s7y+venzvU3WVpMk101PzMblb84Um/Kk78D2V1C5i4Mu0GCeq/22vCbAgx8cqxjrGX2YTh37LYeOH7b5A3v65w==}
+  /@youcan/cli-kit@1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-X4d8HpX6OcKDGWd+6RCb0wMe3U/5C1qGvLuKRdKqCMaW2FBouOR/cp9E1cbIVBQaVqgBteOFr1iBhe6+Y97LcA==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
       archiver: 5.3.2
@@ -3311,17 +3311,17 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/cli@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-cUwIcaI4d6zJCGLdeDAaEilFesW6LsWuG8g0hU5Y4WYUucS78WB7QhJ23h0HxbizqJKCKiWRR6+Y958NqZtD5A==}
+  /@youcan/cli@1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-gJsj9rdMfNteVmYUw5z6d9mpqrtvcfJMkS29K0BUSWCZ8G4UgGha7YeWgcvVEBfL77zvmxucd0pUaTCzV0JCdw==}
     hasBin: true
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-commands': 2.2.28(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-help': 5.2.20(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-plugins': 3.9.4(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/app': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/theme': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/app': 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/theme': 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3330,11 +3330,11 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/theme@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-P16kwQX75eRE8FIKRReE8Dmm9ibXDP4XixNYba3Tq3n5E2hmDi3Fk/vk+ckK6z1NzlPjKRi+DmOGD6x1glUxEQ==}
+  /@youcan/theme@1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-lkrYUGBZFCYNYlBJ9GEZwTRKcOnk7iIhLUV6FVXnCvdro9Xi1sB68amCzzlC1FEUjwVQwLeOewTeRzmxL86rPw==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.7(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3557,7 +3557,7 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       archiver-utils: 2.1.0
-      async: 3.2.4
+      async: 3.2.5
       buffer-crc32: 0.2.13
       readable-stream: 3.6.2
       readdir-glob: 1.1.3
@@ -3649,6 +3649,10 @@ packages:
     resolution: {integrity: sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==}
     dev: true
 
+  /async@3.2.5:
+    resolution: {integrity: sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg==}
+    dev: true
+
   /atomically@2.0.2:
     resolution: {integrity: sha512-Xfmb4q5QV7uqTlVdMSTtO5eF4DCHfNOdaPyKlbFShkzeNP+3lj3yjjcbdjSmEY4+pDBKJ9g26aP+ImTe88UHoQ==}
     dependencies:
@@ -3684,8 +3688,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: true
 
-  /big-integer@1.6.51:
-    resolution: {integrity: sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==}
+  /big-integer@1.6.52:
+    resolution: {integrity: sha512-QxD8cf2eVqJOOz63z6JIN9BzvVs/dlySa5HGSBH5xtR8dPteIRQnBxxKqkNTiT6jbDTF6jAfrd4oMcND9RGbQg==}
     engines: {node: '>=0.6'}
     dev: true
 
@@ -3720,7 +3724,7 @@ packages:
     resolution: {integrity: sha512-z0M+byMThzQmD9NILRniCUXYsYpjwnlO8N5uCFaCqIOpqRsJCrQL9NK3JsD67CN5a08nF5oIL2bD6loTdHOuKw==}
     engines: {node: '>= 5.10.0'}
     dependencies:
-      big-integer: 1.6.51
+      big-integer: 1.6.52
     dev: true
 
   /brace-expansion@1.1.11:
@@ -5649,7 +5653,7 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      async: 3.2.4
+      async: 3.2.5
       chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
@@ -7649,7 +7653,7 @@ packages:
     resolution: {integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==}
     engines: {node: '>= 0.10'}
     dependencies:
-      resolve: 1.22.6
+      resolve: 1.22.8
     dev: true
 
   /redeyed@2.1.1:
@@ -7690,6 +7694,15 @@ packages:
     hasBin: true
     dependencies:
       is-core-module: 2.13.0
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
+    dev: true
+
+  /resolve@1.22.8:
+    resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
+    hasBin: true
+    dependencies:
+      is-core-module: 2.13.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true

@@ -16,8 +16,8 @@
     "@nuxt/devtools": "latest",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/ramda": "^0.29.9",
-    "@youcan/app": "latest",
-    "@youcan/cli": "latest",
+    "@youcan/app": "1.1.0-beta.7",
+    "@youcan/cli": "1.1.0-beta.7",
     "nuxt": "^3.8.2",
     "prisma": "^5.7.0",
     "ramda": "^0.29.1"
