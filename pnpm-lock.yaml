@@ -32,11 +32,11 @@ devDependencies:
     specifier: ^0.29.9
     version: 0.29.9
   '@youcan/app':
-    specifier: 1.1.0-beta.2
-    version: 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
+    specifier: latest
+    version: 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
   '@youcan/cli':
-    specifier: 1.1.0-beta.2
-    version: 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
+    specifier: latest
+    version: 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
   nuxt:
     specifier: ^3.8.2
     version: 3.8.2(@types/node@20.10.5)(typescript@5.3.3)(vite@5.0.10)
@@ -2847,7 +2847,7 @@ packages:
   /@types/cli-progress@3.11.5:
     resolution: {integrity: sha512-D4PbNRbviKyppS5ivBGyFO29POlySLmA2HyUFE4p5QGazAMM3CwkKWcvTl8gvElSuxRh6FPKL8XmidX873ou4g==}
     dependencies:
-      '@types/node': 20.7.0
+      '@types/node': 20.10.5
     dev: true
 
   /@types/estree@1.0.2:
@@ -3266,11 +3266,11 @@ packages:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
     dev: true
 
-  /@youcan/app@1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-DcBe2dguuGXZQZRn1Tdvx9xbstRDNhUTnEzjJDLV5V+e20iN9WqQLkakj0qsE1tFssgiYGdUHNpWuRfZ3K6HOQ==}
+  /@youcan/app@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-dF9mmF1rQFqqS3t2tfn1xpt45jvA76YJq41j5KeJJb4NvyMcSRYC3tAkyFP4zuysSHdUdXdWw/5FwL693qrRLA==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3279,8 +3279,8 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/cli-kit@1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-+6MoKzWcrSi0lKYpS8dxxnzZiQbuRbdlhBXvrpfTC94dQ3x8RSy6BN4ZsXDm+zUR9uSL77pZSthvSNEMrOqqGA==}
+  /@youcan/cli-kit@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-s7y+venzvU3WVpMk101PzMblb84Um/Kk78D2V1C5i4Mu0GCeq/22vCbAgx8cqxjrGX2YTh37LYeOH7b5A3v65w==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
       archiver: 5.3.2
@@ -3311,17 +3311,17 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/cli@1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-vcxoZehDIJDn9296evULqvXfW04Kef2astr17UzioZCACoS9ZJFsmI/Ua5QVXUu0QRbkLkTvdCRtiKaZXvM/6w==}
+  /@youcan/cli@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-cUwIcaI4d6zJCGLdeDAaEilFesW6LsWuG8g0hU5Y4WYUucS78WB7QhJ23h0HxbizqJKCKiWRR6+Y958NqZtD5A==}
     hasBin: true
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-commands': 2.2.28(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-help': 5.2.20(@types/node@20.10.5)(typescript@5.3.3)
       '@oclif/plugin-plugins': 3.9.4(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/app': 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/theme': 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/app': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/theme': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3330,11 +3330,11 @@ packages:
       - typescript
     dev: true
 
-  /@youcan/theme@1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-CvgAsBWiHAhGGUyEuKUXWjLp68sjlFUqWVajcJLAgyAKpyqU45k1Vu6jfadAPYZtTP/m/QX5QFpC3xMAgFK8VQ==}
+  /@youcan/theme@1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-P16kwQX75eRE8FIKRReE8Dmm9ibXDP4XixNYba3Tq3n5E2hmDi3Fk/vk+ckK6z1NzlPjKRi+DmOGD6x1glUxEQ==}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.10.5)(typescript@5.3.3)
-      '@youcan/cli-kit': 1.1.0-beta.2(@types/node@20.10.5)(typescript@5.3.3)
+      '@youcan/cli-kit': 1.1.0-beta.6(@types/node@20.10.5)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
