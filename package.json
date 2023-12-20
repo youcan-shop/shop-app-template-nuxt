@@ -3,12 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "predev": "prisma generate && prisma migrate deploy",
     "dev": "youcan app dev",
-    "migrate": "prisma migrate dev --name init",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "generate": "youcan app generate",
     "youcan": "youcan",
     "nuxt": "nuxt"
   },
