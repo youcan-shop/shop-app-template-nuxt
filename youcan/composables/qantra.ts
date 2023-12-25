@@ -1,4 +1,4 @@
-import * as qantra from "../qantra/index";
+import * as qantra from '@youcan/qantra'
 
 export const useQantra = () => {
   const fetch: typeof useFetch = (request, opts?) => {
