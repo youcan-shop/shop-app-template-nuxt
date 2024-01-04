@@ -5,15 +5,13 @@ export default defineEventHandler(async (event) => {
     return;
   }
 
-  const {
-    youcan_api_secret,
-    youcan_api_key,
-    youcan_api_redirect,
-    youcan_api_scopes,
-  } = useRuntimeConfig();
+  const config = useRuntimeConfig();
 
   const token = event.headers.get("Authorization")?.split(" ")[1]!;
-  const payload = jwt.verify(token, youcan_api_secret) as SessionTokenPayload;
+  const payload = jwt.verify(
+    token,
+    config.youcanApiSecret,
+  ) as SessionTokenPayload;
 
   let session = await prisma.session.findFirst({
     where: { id: payload.sid },
@@ -23,7 +21,6 @@ export default defineEventHandler(async (event) => {
     session = await prisma.session.create({
       data: {
         id: payload.sid,
-        sellerId: payload.sub,
         storeId: payload.str,
       },
     });
@@ -33,13 +30,13 @@ export default defineEventHandler(async (event) => {
     const query = new URLSearchParams({
       prompt: "none",
       response_type: "code",
-      'scope[]': youcan_api_scopes,
-      client_id: youcan_api_key,
       state: encrypt(session.id),
-      redirect_uri: youcan_api_redirect,
+      client_id: config.youcanApiKey,
+      "scope[]": config.youcanApiScopes,
+      redirect_uri: config.youcanApiRedirect,
     });
 
-    const uri = `https://seller-area.youcanshop.dev/admin/oauth/authorize?${query.toString()}`;
+    const uri = `http://seller-area.dotshop.com/admin/oauth/authorize?${query.toString()}`;
     return await sendRedirect(
       event,
       `/escape?redirect_uri=${encodeURIComponent(uri)}`,

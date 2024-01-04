@@ -15,6 +15,7 @@
     "@types/ramda": "^0.29.9",
     "@youcan/app": "latest",
     "@youcan/cli": "latest",
+    "h3": "^1.9.0",
     "nuxt": "^3.8.2",
     "prisma": "^5.7.0",
     "ramda": "^0.29.1"
@@ -25,6 +26,7 @@
     "@youcan/ui-core": "^2.4.13",
     "@youcan/ui-icons": "^2.4.13",
     "@youcan/ui-vue3": "^2.4.13",
+    "isbot": "^4.2.0",
     "jsonwebtoken": "^9.0.2"
   }
 }

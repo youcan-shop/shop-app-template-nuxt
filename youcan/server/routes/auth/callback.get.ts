@@ -4,7 +4,7 @@ interface CallbackQuery {
 }
 
 export default defineEventHandler(async (event) => {
-  const { youcan_api_secret, youcan_api_key, youcan_api_redirect } = useRuntimeConfig();
+  const config = useRuntimeConfig();
 
   const { code, state } = getQuery<CallbackQuery>(event);
 
@@ -21,10 +21,10 @@ export default defineEventHandler(async (event) => {
 
   const query = new URLSearchParams({
     code,
-    client_id: youcan_api_key,
+    client_id: config.youcanApiKey,
     grant_type: "authorization_code",
-    client_secret: youcan_api_secret,
-    redirect_uri: youcan_api_redirect,
+    client_secret: config.youcanApiSecret,
+    redirect_uri: config.youcanApiRedirect,
   });
 
   const res = await fetch(`https://api.youcanshop.dev/oauth/token`, {
