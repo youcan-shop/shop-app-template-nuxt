@@ -17,4 +17,10 @@ export default defineNuxtConfig({
       config.customLogger = logger;
     },
   },
+  runtimeConfig: {
+    youcanApiScopes: '*',
+    youcanApiKey: undefined,
+    youcanApiSecret: undefined,
+    youcanApiRedirect: 'http://localhost:3000/auth/callback',
+  }
 });

@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
     youcan_api_key,
     youcan_api_redirect,
     youcan_api_scopes,
-  } = useAppConfig();
+  } = useRuntimeConfig();
 
   const token = event.headers.get("Authorization")?.split(" ")[1]!;
   const payload = jwt.verify(token, youcan_api_secret) as SessionTokenPayload;

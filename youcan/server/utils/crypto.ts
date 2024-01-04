@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 const ALG = "aes-256-ecb";
 
 export function encrypt(subject: string) {
-  const { youcan_api_secret } = useAppConfig();
+  const { youcan_api_secret } = useRuntimeConfig();
 
   const cipher = crypto.createCipheriv(ALG, sha256(youcan_api_secret), null);
 
@@ -14,7 +14,7 @@ export function encrypt(subject: string) {
 }
 
 export function decrypt(crypt: string) {
-  const { youcan_api_secret } = useAppConfig();
+  const { youcan_api_secret } = useRuntimeConfig();
 
   const decipher = crypto.createDecipheriv(
     ALG,

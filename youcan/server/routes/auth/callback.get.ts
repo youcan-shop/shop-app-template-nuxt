@@ -4,8 +4,7 @@ interface CallbackQuery {
 }
 
 export default defineEventHandler(async (event) => {
-  const { youcan_api_secret, youcan_api_key, youcan_api_redirect } =
-    useAppConfig();
+  const { youcan_api_secret, youcan_api_key, youcan_api_redirect } = useRuntimeConfig();
 
   const { code, state } = getQuery<CallbackQuery>(event);
 
