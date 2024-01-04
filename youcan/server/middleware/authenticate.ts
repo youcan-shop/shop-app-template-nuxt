@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export default defineEventHandler(async (event) => {
-  if (!event.headers.get("Authorization") || event.path.includes("escape")) {
+  if (!event.headers.get("Authorization")) {
     return;
   }
 
@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
     const uri = `http://seller-area.dotshop.com/admin/oauth/authorize?${query.toString()}`;
     return await sendRedirect(
       event,
-      `/escape?redirect_uri=${encodeURIComponent(uri)}`,
+      `/auth/escape?redirect_uri=${encodeURIComponent(uri)}`,
       302
     );
   }
