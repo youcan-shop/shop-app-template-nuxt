@@ -39,7 +39,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   const payload = await getPayload(event, url);
   if (!payload) {
-    const to = encodeURIComponent(`${url.pathname}${url.search}`);
+    const to = encodeURIComponent(url.href);
 
     return navigateTo(`/auth/bounce?to=${to}`);
   }
