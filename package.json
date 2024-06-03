@@ -23,9 +23,9 @@
   "dependencies": {
     "@prisma/client": "5.7.0",
     "@youcan/qantra": "latest",
-    "@youcan/ui-core": "2.5.9-beta.1",
-    "@youcan/ui-icons": "2.5.9-beta.1",
-    "@youcan/ui-vue3": "2.5.9-beta.1",
+    "@youcan/ui-core": "2.6.5",
+    "@youcan/ui-icons": "2.6.5",
+    "@youcan/ui-vue3": "2.6.5",
     "isbot": "^4.2.0",
     "jsonwebtoken": "^9.0.2"
   }
