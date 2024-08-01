@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
       redirect_uri: config.youcanApiRedirect,
     });
 
-    const uri = `https://seller-area.youcanshop.dev/admin/oauth/authorize?${query.toString()}`;
+    const uri = `https://seller-area.youcan.shop/admin/oauth/authorize?${query.toString()}`;
     return await sendRedirect(
       event,
       `/auth/escape?redirect_uri=${encodeURIComponent(uri)}`,
