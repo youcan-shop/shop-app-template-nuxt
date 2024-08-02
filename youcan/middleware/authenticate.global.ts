@@ -69,7 +69,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       redirect_uri: config.youcanApiRedirect,
     });
 
-    const uri = `https://seller-area.youcanshop.dev/admin/oauth/authorize?${query.toString()}`;
+    const uri = `https://seller-area.youcan.shop/admin/oauth/authorize?${query.toString()}`;
 
     return navigateTo(`/auth/escape?redirect_uri=${encodeURIComponent(uri)}`, {
       replace: true,

@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     redirect_uri: config.youcanApiRedirect,
   });
 
-  const res = await fetch(`https://api.youcanshop.dev/oauth/token`, {
+  const res = await fetch(`https://api.youcan.shop/oauth/token`, {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     method: "POST",
     body: query,
