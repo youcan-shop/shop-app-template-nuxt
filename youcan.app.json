@@ -1,3 +1,12 @@
 {
-    "name": "roi-simulator"
+    "name": "roi-simulator",
+    "id": "app_2qIu8uqVMKRzOkI5IkwDXEe20oG",
+    "app_url": null,
+    "redirect_urls": [],
+    "oauth": {
+        "scopes": [
+            "*"
+        ],
+        "client_id": "450"
+    }
 }
