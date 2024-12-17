@@ -1,6 +1,9 @@
-// type AccessTokenResponseType {
-//   access_token: string,
-// }
+type AccessTokenResponseType = {
+  access_token: string
+  refresh_token: string
+  token_type: string
+  expires_in: number
+}
 
 export const useAuth = () => {
   const SELLER_AREA_BASE_URL = 'https://seller-area.youcan.shop';  
@@ -47,8 +50,7 @@ export const useAuth = () => {
       method: "POST",
       body: query,
     });
-
-    return await res.json();
+    return await res.json() as AccessTokenResponseType;
   }
   
   return {

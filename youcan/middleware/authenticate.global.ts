@@ -58,13 +58,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       },
     });
   }
-
-  console.log('OK');
   
-  const auth = useAuth();
+  const { buildAuthorizationUrl } = useAuth();
   
   if (!session.accessToken || !session.expires || session.expires <= new Date()) {
-    const authorizationUri = auth.buildAuthorizationUrl(encrypt(session.id));
+    const authorizationUri = buildAuthorizationUrl(encrypt(session.id));
 
     return navigateTo(`/auth/escape?redirect_uri=${encodeURIComponent(authorizationUri)}`, {
       replace: true,
