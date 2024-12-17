@@ -6,7 +6,7 @@ interface CallbackQuery {
 }
 
 export default defineEventHandler(async (event) => {
-  const auth = useAuth();
+  const { fetchAccessToken } = useAuth();
 
   const { code, state } = getQuery<CallbackQuery>(event);
 
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const { access_token, expires_in } = await auth.fetchAccessToken(code);
+  const { access_token, expires_in } = await fetchAccessToken(code);
 
   await prisma.session.update({
     where: { id: session.id },

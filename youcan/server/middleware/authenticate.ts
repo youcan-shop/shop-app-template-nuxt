@@ -6,8 +6,7 @@ export default defineEventHandler(async (event) => {
     return;
   }
 
-  const { youcanApiSecret } = useAuth();
-  const auth = useAuth();
+  const { youcanApiSecret, buildAuthorizationUrl } = useAuth();
 
   const token = event.headers.get("Authorization")?.split(" ")[1]!;
   const payload = jwt.verify(
@@ -29,7 +28,7 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!session.accessToken || new Date(session.accessToken) <= new Date()) {
-    const authorizationUrl = auth.buildAuthorizationUrl(encrypt(session.id));
+    const authorizationUrl = buildAuthorizationUrl(encrypt(session.id));
 
     return await sendRedirect(
       event,
