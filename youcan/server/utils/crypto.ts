@@ -1,9 +1,10 @@
 import crypto from "node:crypto";
+import { useAuth } from "~/youcan/composables/auth";
 
 const ALG = "aes-256-ecb";
 
 export function encrypt(subject: string) {
-  const { youcanApiSecret } = useRuntimeConfig();
+  const { youcanApiSecret } = useAuth();
 
   const cipher = crypto.createCipheriv(ALG, sha256(youcanApiSecret), null);
 
@@ -14,7 +15,7 @@ export function encrypt(subject: string) {
 }
 
 export function decrypt(crypt: string) {
-  const { youcanApiSecret } = useRuntimeConfig();
+  const { youcanApiSecret } = useAuth();
 
   const decipher = crypto.createDecipheriv(ALG, sha256(youcanApiSecret), null);
 
@@ -29,8 +30,7 @@ export function sha256(subject: string): Buffer {
 }
 
 export function hmac(subject: string, alg: string = "sha256"): string {
-  const { youcanApiSecret } = useRuntimeConfig();
+  const { youcanApiSecret } = useAuth();
   const hmac = crypto.createHmac(alg, youcanApiSecret);
-
   return hmac.update(subject).digest("hex");
 }

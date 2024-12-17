@@ -6,13 +6,13 @@ export default defineEventHandler(async (event) => {
     return;
   }
 
-  const config = useRuntimeConfig();
+  const { youcanApiSecret } = useAuth();
   const auth = useAuth();
 
   const token = event.headers.get("Authorization")?.split(" ")[1]!;
   const payload = jwt.verify(
     token,
-    config.youcanApiSecret,
+    youcanApiSecret,
   ) as SessionTokenPayload;
 
   let session = await prisma.session.findFirst({

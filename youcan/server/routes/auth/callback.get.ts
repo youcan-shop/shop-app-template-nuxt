@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const { access_token, expires_in } = await auth.getAccessToken(code);
+  const { access_token, expires_in } = await auth.fetchAccessToken(code);
 
   await prisma.session.update({
     where: { id: session.id },
