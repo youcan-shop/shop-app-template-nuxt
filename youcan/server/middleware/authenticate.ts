@@ -1,16 +1,17 @@
 import jwt from "jsonwebtoken";
+import { useAuth } from "~/youcan/composables/auth";
 
 export default defineEventHandler(async (event) => {
   if (!event.headers.get("Authorization")) {
     return;
   }
 
-  const config = useRuntimeConfig();
+  const { youcanApiSecret, buildAuthorizationUrl } = useAuth();
 
   const token = event.headers.get("Authorization")?.split(" ")[1]!;
   const payload = jwt.verify(
     token,
-    config.youcanApiSecret,
+    youcanApiSecret,
   ) as SessionTokenPayload;
 
   let session = await prisma.session.findFirst({
@@ -27,19 +28,11 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!session.accessToken || new Date(session.accessToken) <= new Date()) {
-    const query = new URLSearchParams({
-      prompt: "none",
-      response_type: "code",
-      state: encrypt(session.id),
-      client_id: config.youcanApiKey,
-      "scope[]": config.youcanApiScopes,
-      redirect_uri: config.youcanApiRedirect,
-    });
+    const authorizationUrl = buildAuthorizationUrl(encrypt(session.id));
 
-    const uri = `https://seller-area.youcan.shop/admin/oauth/authorize?${query.toString()}`;
     return await sendRedirect(
       event,
-      `/auth/escape?redirect_uri=${encodeURIComponent(uri)}`,
+      `/auth/escape?redirect_uri=${authorizationUrl}`,
       302
     );
   }

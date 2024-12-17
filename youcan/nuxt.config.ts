@@ -18,9 +18,10 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    youcanApiScopes: '*',
-    youcanApiKey: undefined,
-    youcanApiSecret: undefined,
-    youcanApiRedirect: 'http://localhost:3000/auth/callback',
+    youcanApiKey: process.env.YOUCAN_API_KEY,
+    youcanApiSecret: process.env.YOUCAN_API_SECRET,
+    youcanApiScopes: process.env.YOUCAN_API_SCOPES,
+    appUrl: process.env.APP_URL,
+    port: process.env.PROT,
   }
 });

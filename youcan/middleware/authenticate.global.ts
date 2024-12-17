@@ -6,12 +6,14 @@ import { prisma } from "../server/utils/database";
 const whitelist = ["/auth/escape", "/auth/bounce", "/__nuxt_error"];
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
-  if (process.client) {
+  
+  if (import.meta.client) {
     return;
   }
 
   const url = useRequestURL();
-  const event = useRequestEvent();
+  const event = useRequestEvent()!;
+
   if (event.context.session) {
     return;
   }
@@ -24,7 +26,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     const origin = event.headers.get("origin");
     if (origin && origin !== url.hostname) {
       appendHeaders(event, {
-        "access-control-max-age": "7200",
+        "access-control-max-age": 7200,
         "access-control-allow-origin": "*",
         "access-control-allow-headers": "Authorization, Content-Type",
       });
@@ -43,7 +45,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     return navigateTo(`/auth/bounce?to=${to}`);
   }
-
+  
   let session = await prisma.session.findFirst({
     where: { id: payload.session },
   });
@@ -56,22 +58,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       },
     });
   }
+  
+  const { buildAuthorizationUrl } = useAuth();
+  
+  if (!session.accessToken || !session.expires || session.expires <= new Date()) {
+    const authorizationUri = buildAuthorizationUrl(encrypt(session.id));
 
-  const config = useRuntimeConfig();
-
-  if (!session.accessToken || new Date(session.accessToken) <= new Date()) {
-    const query = new URLSearchParams({
-      prompt: "none",
-      response_type: "code",
-      state: encrypt(session.id),
-      client_id: config.youcanApiKey,
-      "scope[]": config.youcanApiScopes,
-      redirect_uri: config.youcanApiRedirect,
-    });
-
-    const uri = `https://seller-area.youcan.shop/admin/oauth/authorize?${query.toString()}`;
-
-    return navigateTo(`/auth/escape?redirect_uri=${encodeURIComponent(uri)}`, {
+    return navigateTo(`/auth/escape?redirect_uri=${encodeURIComponent(authorizationUri)}`, {
       replace: true,
     });
   }

@@ -1,10 +1,12 @@
+import { useAuth } from "~/youcan/composables/auth";
+
 interface CallbackQuery {
   code: string;
   state: string;
 }
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
+  const { fetchAccessToken } = useAuth();
 
   const { code, state } = getQuery<CallbackQuery>(event);
 
@@ -19,21 +21,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const query = new URLSearchParams({
-    code,
-    client_id: config.youcanApiKey,
-    grant_type: "authorization_code",
-    client_secret: config.youcanApiSecret,
-    redirect_uri: config.youcanApiRedirect,
-  });
-
-  const res = await fetch(`https://api.youcan.shop/oauth/token`, {
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    method: "POST",
-    body: query,
-  });
-
-  const { access_token, expires_in } = await res.json();
+  const { access_token, expires_in } = await fetchAccessToken(code);
 
   await prisma.session.update({
     where: { id: session.id },
