@@ -1,6 +1,20 @@
+// type AccessTokenResponseType {
+//   access_token: string,
+// }
+
 export const useAuth = () => {
+  const SELLER_AREA_BASE_URL = 'https://seller-area.youcan.shop';
+
   const config = useRuntimeConfig();
-  const sellerAreaBaseUrl = 'https://seller-area.youcan.shop';
+
+  if (
+    !config.appUrl
+    || !config.youcanApiKey
+    || !config.youcanApiSecret
+    || !config.youcanApiScopes
+  ) {
+    throw new Error('Missing required environment variables: APP_URL, YOUCAN_API_KEY, YOUCAN_API_SECRET, YOUCAN_API_SCOPES.');
+  }
 
   const redirectUri = new URL(config.appUrl);
   redirectUri.pathname = '/auth/callback';
@@ -17,10 +31,10 @@ export const useAuth = () => {
     }
   );
 
-    return `${sellerAreaBaseUrl}/admin/oauth/authorize?${query.toString()}`;
+    return `${SELLER_AREA_BASE_URL}/admin/oauth/authorize?${query.toString()}`;
   }
 
-  const getAccessToken = async function (code: string) {
+  const fetchAccessToken = async function (code: string) {
     const query = new URLSearchParams({
       code,
       client_id: config.youcanApiKey,
@@ -39,7 +53,7 @@ export const useAuth = () => {
   }
 
   return {
-    getAccessToken,
+    getAccessToken: fetchAccessToken,
     buildAuthorizationUrl,
   }
 }

@@ -6,6 +6,7 @@ import { prisma } from "../server/utils/database";
 const whitelist = ["/auth/escape", "/auth/bounce", "/__nuxt_error"];
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
+  
   if (import.meta.client) {
     return;
   }

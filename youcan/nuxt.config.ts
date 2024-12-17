@@ -18,10 +18,10 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    youcanApiKey: undefined,
-    youcanApiSecret: undefined,
-    youcanApiScopes: '*',
-    appUrl: 'http://localhost',
-    port: '3000',
+    youcanApiKey: process.env.YOUCAN_API_KEY,
+    youcanApiSecret: process.env.YOUCAN_API_SECRET,
+    youcanApiScopes: process.env.YOUCAN_API_SCOPES,
+    appUrl: process.env.APP_URL,
+    port: process.env.PROT,
   }
 });
