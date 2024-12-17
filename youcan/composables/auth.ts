@@ -24,11 +24,11 @@ export const useAuth = () => {
   const buildAuthorizationUrl = (state: string) => {
     const query = new URLSearchParams(
       {
-        prompt: "none",
-        response_type: "code",
+        prompt: 'none',
+        response_type: 'code',
         state: state,
         client_id: config.youcanApiKey,
-        "scope[]": config.youcanApiScopes,
+        'scope[]': config.youcanApiScopes,
         redirect_uri: redirectUri.toString(),
     }
   );
@@ -40,14 +40,14 @@ export const useAuth = () => {
     const query = new URLSearchParams({
       code,
       client_id: config.youcanApiKey,
-      grant_type: "authorization_code",
+      grant_type: 'authorization_code',
       client_secret: config.youcanApiSecret,
       redirect_uri: redirectUri.toString(),
     });
 
-    const res = await fetch(`https://api.youcan.shop/oauth/token`, {
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      method: "POST",
+    const res = await fetch(`${SELLER_AREA_BASE_URL}/oauth/token`, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
       body: query,
     });
     return await res.json() as AccessTokenResponseType;
