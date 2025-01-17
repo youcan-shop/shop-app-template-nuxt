@@ -7,6 +7,8 @@ type AccessTokenResponseType = {
 
 export const useAuth = () => {
   const SELLER_AREA_BASE_URL = 'https://seller-area.youcan.shop';  
+  const API_BASE_URL = 'https://api.youcan.shop';
+
   const config = useRuntimeConfig();
   
   if (
@@ -45,7 +47,7 @@ export const useAuth = () => {
       redirect_uri: redirectUri.toString(),
     });
 
-    const res = await fetch(`${SELLER_AREA_BASE_URL}/oauth/token`, {
+    const res = await fetch(`${API_BASE_URL}/oauth/token`, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'POST',
       body: query,
