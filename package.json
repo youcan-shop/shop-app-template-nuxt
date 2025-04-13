@@ -28,5 +28,17 @@
     "@youcan/ui-vue3": "2.5.9-beta.1",
     "isbot": "^4.2.0",
     "jsonwebtoken": "^9.0.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "mmap-io",
+      "prisma",
+      "shmmap",
+      "yarn"
+    ]
   }
 }
