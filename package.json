@@ -17,7 +17,7 @@
     "@youcan/cli": "latest",
     "h3": "^1.9.0",
     "nuxt": "^3.8.2",
-    "prisma": "^5.7.0",
+    "prisma": "5.7.0",
     "ramda": "^0.29.1"
   },
   "dependencies": {
