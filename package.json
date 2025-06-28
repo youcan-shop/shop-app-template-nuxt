@@ -15,14 +15,14 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/ramda": "^0.29.9",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/ramda": "^0.30.2",
     "@youcan/app": "latest",
     "@youcan/cli": "latest",
-    "h3": "^1.9.0",
-    "nuxt": "^3.8.2",
+    "h3": "^1.15.3",
+    "nuxt": "^3.17.5",
     "prisma": "5.7.0",
-    "ramda": "^0.29.1"
+    "ramda": "^0.31.3"
   },
   "dependencies": {
     "@prisma/client": "5.7.0",
@@ -30,7 +30,7 @@
     "@youcan/ui-core": "2.5.9-beta.1",
     "@youcan/ui-icons": "2.5.9-beta.1",
     "@youcan/ui-vue3": "2.5.9-beta.1",
-    "isbot": "^4.2.0",
+    "isbot": "^5.1.28",
     "jsonwebtoken": "^9.0.2"
   },
   "pnpm": {
@@ -43,6 +43,9 @@
       "prisma",
       "shmmap",
       "yarn"
-    ]
+    ],
+    "overrides": {
+      "cross-spawn@<6.0.6": ">=6.0.6"
+    }
   }
 }
