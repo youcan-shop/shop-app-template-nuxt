@@ -1,50 +1,23 @@
-type AccessTokenResponseType = {
-  access_token: string
-  refresh_token: string
-  token_type: string
-  expires_in: number
+interface TokenExchangeResponse {
+  access_token: string;
+  expires_in: number;
 }
 
-export const useAuth = () => {
-  const SELLER_AREA_BASE_URL = 'https://seller-area.youcan.shop';  
-  const API_BASE_URL = 'https://api.youcan.shop';
+const API_BASE_URL = 'http://api.dotshop.com';
 
+export function useAuth() {
   const config = useRuntimeConfig();
-  
-  if (
-    !config.appUrl
-    || !config.youcanApiKey
-    || !config.youcanApiSecret
-    || !config.youcanApiScopes
-  ) {  
+
+  if (!config.appUrl || !config.youcanApiKey || !config.youcanApiSecret || !config.youcanApiScopes) {
     throw new Error('Missing required environment variables: APP_URL, YOUCAN_API_KEY, YOUCAN_API_SECRET, YOUCAN_API_SCOPES.');
   }
-  
-  const redirectUri = new URL(config.appUrl);
-  redirectUri.pathname = '/auth/callback';
 
-  const buildAuthorizationUrl = (state: string) => {
-    const query = new URLSearchParams(
-      {
-        prompt: 'none',
-        response_type: 'code',
-        state: state,
-        client_id: config.youcanApiKey,
-        'scope[]': config.youcanApiScopes,
-        redirect_uri: redirectUri.toString(),
-    }
-  );
-
-    return `${SELLER_AREA_BASE_URL}/admin/oauth/authorize?${query.toString()}`;
-  }
-
-  const fetchAccessToken = async function (code: string) {
+  async function exchangeSessionToken(session: string) {
     const query = new URLSearchParams({
-      code,
+      session_token: session,
+      grant_type: 'token_exchange',
       client_id: config.youcanApiKey,
-      grant_type: 'authorization_code',
       client_secret: config.youcanApiSecret,
-      redirect_uri: redirectUri.toString(),
     });
 
     const res = await fetch(`${API_BASE_URL}/oauth/token`, {
@@ -52,14 +25,14 @@ export const useAuth = () => {
       method: 'POST',
       body: query,
     });
-    return await res.json() as AccessTokenResponseType;
+
+    return (await res.json()) as TokenExchangeResponse;
   }
-  
+
   return {
-    fetchAccessToken,
-    buildAuthorizationUrl,
+    exchangeSessionToken,
     youcanApiKey: config.youcanApiKey,
     youcanApiSecret: config.youcanApiSecret,
     youcanApiScopes: config.youcanApiScopes,
-  }
+  };
 }

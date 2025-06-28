@@ -1,4 +1,4 @@
-import YouCanUi from "@youcan/ui-vue3";
+import YouCanUi from '@youcan/ui-vue3';
 
 export default defineNuxtPlugin((nuxt) => {
   // @ts-expect-error temp workaround

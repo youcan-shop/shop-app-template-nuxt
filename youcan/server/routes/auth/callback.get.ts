@@ -1,4 +1,4 @@
-import { useAuth } from "~/youcan/composables/auth";
+import { useAuth } from '~/youcan/composables/auth';
 
 interface CallbackQuery {
   code: string;
@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   if (!session) {
     throw createError({
       statusCode: 401,
-      statusMessage: "Unauthorized",
+      statusMessage: 'Unauthorized',
     });
   }
 
@@ -31,5 +31,5 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  return await sendRedirect(event, "/");
+  return await sendRedirect(event, '/');
 });

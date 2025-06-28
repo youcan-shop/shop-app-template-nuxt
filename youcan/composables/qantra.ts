@@ -1,11 +1,11 @@
-import * as qantra from '@youcan/qantra'
+import * as qantra from '@youcan/qantra';
 
-export const useQantra = () => {
+export function useQantra() {
   const fetch: typeof useFetch = (request, opts?) => {
     return useFetch(request, {
       ...opts,
       server: false,
-      redirect: "follow",
+      redirect: 'follow',
       async onRequest({ options }) {
         const token = await qantra.sessionToken();
 
@@ -28,4 +28,4 @@ export const useQantra = () => {
     fetch,
     ...qantra,
   };
-};
+}

@@ -1,18 +1,15 @@
-import jwt from "jsonwebtoken";
-import { useAuth } from "~/youcan/composables/auth";
+import type { SessionTokenPayload } from '~/youcan/types/session';
+import jwt from 'jsonwebtoken';
+import { useAuth } from '~/youcan/composables/auth';
 
 export default defineEventHandler(async (event) => {
-  if (!event.headers.get("Authorization")) {
+  if (!event.headers.get('Authorization')) {
     return;
   }
 
-  const { youcanApiSecret, buildAuthorizationUrl } = useAuth();
-
-  const token = event.headers.get("Authorization")?.split(" ")[1]!;
-  const payload = jwt.verify(
-    token,
-    youcanApiSecret,
-  ) as SessionTokenPayload;
+  const { youcanApiSecret, exchangeSessionToken } = useAuth();
+  const token = event.headers.get('Authorization')!.replace('Bearer ', '');
+  const payload = jwt.verify(token, youcanApiSecret) as SessionTokenPayload;
 
   let session = await prisma.session.findFirst({
     where: { id: payload.sid },
@@ -27,14 +24,16 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!session.accessToken || new Date(session.accessToken) <= new Date()) {
-    const authorizationUrl = buildAuthorizationUrl(encrypt(session.id));
+  if (!session.accessToken || session.expires! <= new Date()) {
+    const { access_token, expires_in } = await exchangeSessionToken(token);
 
-    return await sendRedirect(
-      event,
-      `/auth/escape?redirect_uri=${authorizationUrl}`,
-      302
-    );
+    session = await prisma.session.update({
+      where: { id: session.id },
+      data: {
+        accessToken: access_token,
+        expires: new Date(Date.now() + expires_in * 1_000),
+      },
+    });
   }
 
   event.context.session = session;

@@ -1,7 +1,7 @@
-import type { Session } from "@prisma/client";
+import type { Session } from '@prisma/client';
 
 declare module 'h3' {
-    interface H3EventContext {
-      session: Session
-    }
+  interface H3EventContext {
+    session: Session;
+  }
 }

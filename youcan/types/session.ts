@@ -1,4 +1,4 @@
-interface SessionTokenPayload {
+export interface SessionTokenPayload {
   iss: string;
   dest: string;
   aud: string;
@@ -9,4 +9,5 @@ interface SessionTokenPayload {
   iat: number;
   nbf: number;
   exp: number;
+  sig: string;
 }

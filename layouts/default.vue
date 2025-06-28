@@ -3,11 +3,11 @@
 </script>
 
 <template>
-        <slot />
+  <slot />
 </template>
 
 <style>
 html {
-    background-color: white;
+  background-color: white;
 }
 </style>

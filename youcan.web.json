@@ -1,10 +1,10 @@
 {
-    "name": "nuxt",
-    "roles": [
-        "client",
-        "server"
-    ],
-    "commands": {
-        "dev": "npm exec nuxt dev"
-    }
+  "name": "nuxt",
+  "roles": [
+    "client",
+    "server"
+  ],
+  "commands": {
+    "dev": "npm exec nuxt dev"
+  }
 }
