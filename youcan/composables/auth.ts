@@ -3,7 +3,7 @@ interface TokenExchangeResponse {
   expires_in: number;
 }
 
-const API_BASE_URL = 'http://api.dotshop.com';
+const API_BASE_URL = 'https://api.youcan.shop';
 
 export function useAuth() {
   const config = useRuntimeConfig();
