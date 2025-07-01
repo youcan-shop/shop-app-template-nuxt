@@ -14,6 +14,7 @@ export default defineNuxtPlugin(() => {
   });
 
   window.$fetch = fetch;
+  window.fetch = fetch;
 
   return {
     provide: {
