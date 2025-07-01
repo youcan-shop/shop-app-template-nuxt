@@ -24,7 +24,7 @@
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "2.5.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/ramda": "^0.30.2",
     "@unocss/eslint-plugin": "^66.3.2",
