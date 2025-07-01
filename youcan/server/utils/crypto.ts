@@ -1,6 +1,6 @@
 import type { Buffer } from 'node:buffer';
 import crypto from 'node:crypto';
-import { useAuth } from '~/youcan/composables/auth';
+import { useAuth } from '~/youcan/composables/use-auth';
 
 const ALG = 'aes-256-ecb';
 

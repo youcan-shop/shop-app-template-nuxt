@@ -1,6 +1,6 @@
 import type { SessionTokenPayload } from '~/youcan/types/session';
 import jwt from 'jsonwebtoken';
-import { useAuth } from '~/youcan/composables/auth';
+import { useAuth } from '~/youcan/composables/use-auth';
 
 export default defineEventHandler(async (event) => {
   if (!event.headers.get('Authorization')) {

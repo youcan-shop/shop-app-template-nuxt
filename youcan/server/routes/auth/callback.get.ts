@@ -1,4 +1,4 @@
-import { useAuth } from '~/youcan/composables/auth';
+import { useAuth } from '~/youcan/composables/use-auth';
 
 interface CallbackQuery {
   code: string;

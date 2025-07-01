@@ -8,6 +8,7 @@
 
 <style>
 html {
-  background-color: white;
+  font: var(--paragraph-sm);
+  background-color: var(--color-base-white);
 }
 </style>

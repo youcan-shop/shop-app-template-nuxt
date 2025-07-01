@@ -9,8 +9,5 @@
 </template>
 
 <style>
-html {
-  background-color: white;
-  font: var(--text-sm-regular);
-}
+
 </style>

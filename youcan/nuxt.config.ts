@@ -1,29 +1,22 @@
 import process from 'node:process';
-import { createLogger } from 'vite';
-
-// temp workaround for youcan-ui css warnings
-
-const logger = createLogger();
-const warn = logger.warn;
-
-logger.warn = (msg, options) => {
-  if (msg.includes('vite:css'))
-    return;
-  warn(msg, options);
-};
 
 export default defineNuxtConfig({
-  css: ['@youcan/ui-core/tokens', '@youcan/ui-vue3/style'],
-  hooks: {
-    'vite:extendConfig': function (config) {
-      config.customLogger = logger;
-    },
-  },
+  modules: [
+    '@unocss/nuxt',
+  ],
+  css: [
+    '@youcan/celeste-tokens/tokens.css',
+    '@youcan/celeste-vue/dist/index.css',
+  ],
   runtimeConfig: {
-    youcanApiKey: process.env.YOUCAN_API_KEY,
-    youcanApiSecret: process.env.YOUCAN_API_SECRET,
-    youcanApiScopes: process.env.YOUCAN_API_SCOPES,
-    appUrl: process.env.APP_URL,
     port: process.env.PROT,
+    appUrl: process.env.APP_URL,
+    youcanApiKey: process.env.YOUCAN_API_KEY,
+    youcanApiScopes: process.env.YOUCAN_API_SCOPES,
+    youcanApiSecret: process.env.YOUCAN_API_SECRET,
   },
+  unocss: {
+    nuxtLayers: true,
+  },
+  ssr: false,
 });
