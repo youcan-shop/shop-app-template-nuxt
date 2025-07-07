@@ -18,5 +18,20 @@ export default defineNuxtConfig({
   unocss: {
     nuxtLayers: true,
   },
-  ssr: false,
+  routeRules: {
+    '/**': {
+      headers: {
+        'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+        'Content-Security-Policy': 'frame-ancestors https://seller-area.youcan.shop http://seller-area.dotshop.com https://seller-area.ycan.vip https://seller-area.testyoucan.shop',
+      },
+    },
+    '/auth/bounce': {
+      ssr: false,
+    },
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: n => ['ui-nav-menu'].includes(n),
+    },
+  },
 });

@@ -1,5 +1,5 @@
-import * as qantra from '@youcan/qantra';
-
 export function useQantra() {
-  return qantra;
+  const { $qantra } = useNuxtApp();
+
+  return $qantra;
 }

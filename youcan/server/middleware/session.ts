@@ -9,6 +9,7 @@ export default defineEventHandler(async (event) => {
 
   const { youcanApiSecret, exchangeSessionToken } = useAuth();
   const token = event.headers.get('Authorization')!.replace('Bearer ', '');
+
   const payload = jwt.verify(token, youcanApiSecret) as SessionTokenPayload;
 
   let session = await prisma.session.findFirst({

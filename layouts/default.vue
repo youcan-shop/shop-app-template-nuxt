@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <ui-nav-menu />
   <slot />
 </template>
 

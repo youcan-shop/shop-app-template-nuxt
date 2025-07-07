@@ -1,25 +1,21 @@
+import type { Session } from '@prisma/client';
 import { isbot } from 'isbot';
 import { hmac } from '../server/utils/crypto';
-import { prisma } from '../server/utils/database';
 
 const whitelist = ['/auth/bounce', '/__nuxt_error'];
 
-export default defineNuxtRouteMiddleware(async (to) => {
+export default defineNuxtRouteMiddleware((to) => {
   if (import.meta.client) {
     return;
-  }
-
-  for (const path of whitelist) {
-    if (to.path.startsWith(path)) {
-      return true;
-    }
   }
 
   const url = useRequestURL();
   const event = useRequestEvent()!;
 
-  if (event.context.session) {
-    return;
+  for (const path of whitelist) {
+    if (to.path.startsWith(path) || url.pathname.startsWith(path)) {
+      return;
+    }
   }
 
   if (isbot(event.headers.get('user-agent'))) {
@@ -39,31 +35,35 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return abortNavigation({ statusCode: 204 });
   }
 
-  const payload = await getPayload(url);
-
-  if (!payload) {
-    const to = encodeURIComponent(url.href);
-
-    return navigateTo(`/auth/bounce?to=${to}`);
+  if (event.context.session) {
+    return;
   }
 
-  let session = await prisma.session.findFirst({
-    where: { id: payload.session },
-  });
+  const header = event.headers.get('authorization');
 
-  if (!session) {
-    session = await prisma.session.create({
-      data: {
-        id: payload.session,
-        storeId: payload.store,
-      },
+  if (header != null) {
+    $fetch<Session>('/auth/session')
+      .then(s => event.context.session = s);
+
+    return;
+  }
+
+  const payload = getSessionFromSearch(url);
+
+  if (!payload) {
+    return navigateTo({
+      path: '/auth/bounce',
+      query: { 'youcan-reload': encodeURIComponent(url.href) },
     });
   }
 
-  event.context.session = session;
+  $fetch<Session>(
+    '/auth/session',
+    { body: payload, method: 'post' },
+  ).then(s => event.context.session = s);
 });
 
-async function getPayload(url: URL): Promise<{ store: string; session: string; code?: string } | null> {
+function getSessionFromSearch(url: URL): { store: string; session: string; code?: string } | null {
   const signature = url.searchParams.get('hmac');
   if (!signature) {
     return null;
