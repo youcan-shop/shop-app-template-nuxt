@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     port: process.env.PROT,
     appUrl: process.env.APP_URL,
     youcanApiKey: process.env.YOUCAN_API_KEY,
-    youcanApiUrl: process.env.YOUCAN_API_URL || 'https://api.youcan.shop',
+    youcanApiUrl: process.env.YOUCAN_API_URL,
     youcanApiScopes: process.env.YOUCAN_API_SCOPES,
     youcanApiSecret: process.env.YOUCAN_API_SECRET,
   },
