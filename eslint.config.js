@@ -4,7 +4,9 @@ export default youcan({
   formatters: true,
   unocss: true,
   vue: true,
+
   ignores: [
     'youcan.app.json',
+    '.nuxt',
   ],
 });

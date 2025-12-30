@@ -18,12 +18,11 @@ logs
 .fleet
 .idea
 
-# Local env files
+/app/generated/prisma
+/prisma/dev.db
+
+youcan.app.json
+
+.stylelintcache
+.eslintcache
 .env
-.env.*
-!.env.example
-
-*.sqlite
-*.sqlite-journal
-
-pnpm-lock.yaml

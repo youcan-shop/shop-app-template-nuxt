@@ -1,0 +1,12 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@prisma/client'
+  - '@prisma/engines'
+  - esbuild
+  - mmap-io
+  - prisma
+  - shmmap
+  - simple-git-hooks
+  - unrs-resolver
+  - vue-demi
+  - yarn
