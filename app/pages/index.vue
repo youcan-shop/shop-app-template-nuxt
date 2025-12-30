@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { data: session } = await useFetch('/auth/session');
+const { data: store } = await useApi('/api/store');
 </script>
 
 <template>
   <div>
     <h1>Hello</h1>
-    {{ session }}
+    {{ store }}
   </div>
 </template>
