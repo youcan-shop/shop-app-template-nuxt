@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { FancyButton, LinkButton, ScrollArea } from '@youcan/celeste';
 
+const { data: store } = useApi('/api/store', { server: false });
 const { data: product, pending, execute: generateProduct } = useApi('/api/products/generate', { immediate: false, method: 'POST' });
-const { data: store } = useApi('/api/store');
 </script>
 
 <template>
@@ -107,6 +107,10 @@ const { data: store } = useApi('/api/store');
           <span class="text-text-strong-950">{{ store.currency.code }}</span>
         </li>
       </ul>
+
+      <div v-else>
+        <div class="rounded-10px bg-bg-weak-50 h-100px animate-pulse" />
+      </div>
     </div>
 
     <div class="p-4 border border-stroke-soft-200 rounded-12px bg-bg-white-0 shadow-regular-xs">

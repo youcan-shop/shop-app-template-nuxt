@@ -38,6 +38,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const sessionId = getQuery(event).session as string | undefined;
+
   if (sessionId) {
     const session = await prisma.session.findFirst({
       where: { id: sessionId },
