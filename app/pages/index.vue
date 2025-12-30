@@ -23,6 +23,18 @@ const { data: store } = useApi('/api/store');
         </LinkButton>
         with the YouCan REST API to provide a reasonable primer for app development.
       </p>
+
+      <p class="text-text-sub-600">
+        If you have questions or need assistance, do not hesitate to reach out at
+        <LinkButton
+          href="mailto:partners@youcan.shop"
+          target="_blank"
+          underline
+          intent="gray"
+        >
+          <span>partners@youcan.shop</span>
+        </LinkButton>.
+      </p>
     </div>
 
     <div class="p-4 border border-stroke-soft-200 rounded-12px bg-bg-white-0 shadow-regular-xs space-y-2">
