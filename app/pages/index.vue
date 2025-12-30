@@ -2,6 +2,7 @@
 import { FancyButton, LinkButton, ScrollArea } from '@youcan/celeste';
 
 const { data: product, pending, execute: generateProduct } = useApi('/api/products/generate', { immediate: false, method: 'POST' });
+const { data: store } = useApi('/api/store');
 </script>
 
 <template>
@@ -67,6 +68,37 @@ const { data: product, pending, execute: generateProduct } = useApi('/api/produc
   <aside class="col-span-4 space-y-4">
     <div class="p-4 border border-stroke-soft-200 rounded-12px bg-bg-white-0 shadow-regular-xs">
       <h2 class="label-sm">
+        Store Info
+      </h2>
+      <ul v-if="store" class="text-text-sub-600 mt-2 space-y-2">
+        <li>
+          <span>Name: </span>
+          <span class="text-text-strong-950">{{ store.name }}</span>
+        </li>
+        <li>
+          <span>Slug: </span>
+          <span class="text-text-strong-950">{{ store.slug }}</span>
+        </li>
+        <li>
+          <span>Domain: </span>
+          <LinkButton
+            :href="`https://${store.domain}`"
+            intent="black"
+            target="_blank"
+            underline
+          >
+            {{ store.domain }}
+          </LinkButton>
+        </li>
+        <li>
+          <span>Currency: </span>
+          <span class="text-text-strong-950">{{ store.currency.code }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="p-4 border border-stroke-soft-200 rounded-12px bg-bg-white-0 shadow-regular-xs">
+      <h2 class="label-sm">
         App template stack
       </h2>
       <ul class="text-text-sub-600 mt-2 space-y-2">
@@ -90,15 +122,6 @@ const { data: product, pending, execute: generateProduct } = useApi('/api/produc
             underline
           >
             Celeste
-          </LinkButton>
-          <span> & </span>
-          <LinkButton
-            href="https://unocss.dev"
-            intent="black"
-            target="_blank"
-            underline
-          >
-            UnoCSS
           </LinkButton>
         </li>
         <li>

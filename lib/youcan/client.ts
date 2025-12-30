@@ -1,6 +1,7 @@
 import type { Store } from './types';
 import { ofetch } from 'ofetch';
 
+import { BillingResource } from './resources/billing';
 import { OrderResource } from './resources/order';
 import { ProductResource } from './resources/product';
 
@@ -12,10 +13,12 @@ export interface YouCanClientOptions {
 export class StoreContext {
   public products: ProductResource;
   public orders: OrderResource;
+  public billing: BillingResource;
 
   constructor(private request: <T>(endpoint: string, options?: any) => Promise<T>) {
     this.products = new ProductResource(request);
     this.orders = new OrderResource(request);
+    this.billing = new BillingResource(request);
   }
 
   public async info(): Promise<Store> {

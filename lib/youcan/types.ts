@@ -169,6 +169,66 @@ export interface OrderGetOptions {
   include?: OrderInclude[];
 }
 
-export interface ProductGetOptions {
-  include?: ProductInclude[];
+export interface ChargePrice {
+  amount: number | string;
+  currency: string;
+}
+
+export type ChargeStatus = 'pending' | 'active' | 'deferred' | 'frozen' | 'expired' | 'declined' | 'canceled';
+export type ChargeType = 'onetime' | 'recurring';
+
+export interface AppOnetimeCharge {
+  type: 'onetime';
+  id: string;
+  name: string;
+  status: ChargeStatus;
+  price: ChargePrice;
+  test: boolean;
+  confirmation_url: string;
+  return_url: string;
+  created_at: number;
+}
+
+export interface AppRecurringPlan {
+  interval: number | string;
+  price: ChargePrice;
+}
+
+export interface AppRecurringCharge {
+  type: 'recurring';
+  id: string;
+  name: string;
+  status: ChargeStatus;
+  plans: AppRecurringPlan[];
+  test: boolean;
+  trial_days: number;
+  confirmation_url: string;
+  return_url: string;
+  created_at: number;
+  period_ends_at: number | null;
+}
+
+export interface CreateOnetimeChargeRequest {
+  name: string;
+  return_url: string;
+  price: {
+    amount: number;
+  };
+  test?: boolean;
+}
+
+export interface CreateRecurringChargePlan {
+  type: 'time_based';
+  price: {
+    amount: number;
+  };
+  interval: '30_days' | '365_days';
+}
+
+export interface CreateRecurringChargeRequest {
+  name: string;
+  return_url: string;
+  trial_days?: number;
+  plans: CreateRecurringChargePlan[];
+  test?: boolean;
 }
