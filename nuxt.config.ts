@@ -16,6 +16,8 @@ export default defineNuxtConfig({
     port: process.env.PROT,
     appUrl: process.env.APP_URL,
     youcanApiKey: process.env.YOUCAN_API_KEY,
+    youcanApiUrl: process.env.YOUCAN_API_URL,
+    youcanSellerAreaUrl: process.env.YOUCAN_SELLER_AREA_URL,
     youcanApiScopes: process.env.YOUCAN_API_SCOPES,
     youcanApiSecret: process.env.YOUCAN_API_SECRET,
   },
@@ -43,6 +45,12 @@ export default defineNuxtConfig({
       rollupOptions: {
         external: [/\.prisma/],
       },
+    },
+  },
+
+  nitro: {
+    experimental: {
+      asyncContext: true,
     },
   },
 });

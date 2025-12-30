@@ -4,7 +4,6 @@ import crypto from 'node:crypto';
 import { useRuntimeConfig } from '#imports';
 
 const ALG = 'aes-256-ecb';
-const API_BASE_URL = 'https://api.youcan.shop';
 
 export function encrypt(subject: string) {
   const { youcanApiSecret } = useRuntimeConfig();
@@ -48,7 +47,7 @@ export async function exchangeSessionToken(session: string) {
     client_secret: config.youcanApiSecret,
   });
 
-  const res = await fetch(`${API_BASE_URL}/oauth/token`, {
+  const res = await fetch(`${config.youcanApiUrl}/oauth/token`, {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     method: 'POST',
     body: query,
