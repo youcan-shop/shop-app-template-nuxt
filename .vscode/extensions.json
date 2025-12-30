@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "Nuxtr.nuxtr-vscode",
+    "stylelint.vscode-stylelint",
+    "dbaeumer.vscode-eslint",
+    "antfu.unocss",
+    "Vue.volar",
+    "Prisma.prisma"
+  ]
+}
