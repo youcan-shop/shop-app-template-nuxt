@@ -39,5 +39,10 @@ export default defineNuxtConfig({
     preview: {
       allowedHosts: true,
     },
+    build: {
+      rollupOptions: {
+        external: [/\.prisma/],
+      },
+    },
   },
 });
