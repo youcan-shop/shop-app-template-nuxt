@@ -1,8 +1,11 @@
 import CelesteIcons from '@youcan/celeste-icons/icons.json';
 
+import { presetCeleste } from '@youcan/celeste-tokens/preset';
+
 import {
   defineConfig,
   presetIcons,
+  presetTypography,
   presetWind4,
   transformerDirectives,
   transformerVariantGroup,
@@ -11,6 +14,7 @@ import {
 export default defineConfig({
   presets: [
     presetWind4(),
+    presetTypography(),
     presetIcons({
       scale: 1.2,
       warn: true,
@@ -19,6 +23,7 @@ export default defineConfig({
         [CelesteIcons.prefix]: () => CelesteIcons,
       },
     }),
+    presetCeleste(),
   ],
   transformers: [
     transformerDirectives(),

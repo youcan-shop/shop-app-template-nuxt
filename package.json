@@ -23,9 +23,9 @@
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "@prisma/nuxt": "0.3.0",
-    "@youcan/celeste": "^0.6.54",
-    "@youcan/celeste-icons": "^0.6.54",
-    "@youcan/celeste-tokens": "^0.6.54",
+    "@youcan/celeste": "latest",
+    "@youcan/celeste-icons": "latest",
+    "@youcan/celeste-tokens": "latest",
     "@youcan/qantra": "latest",
     "isbot": "^5.1.30",
     "jsonwebtoken": "^9.0.2",
