@@ -41,10 +41,17 @@
     "gql",
     "graphql",
     "astro",
+    "svelte",
     "css",
     "less",
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+
+  "cssvar.enable": true,
+  "cssvar.files": [
+    "**/*.css"
+  ],
+  "cssvar.ignore": []
 }

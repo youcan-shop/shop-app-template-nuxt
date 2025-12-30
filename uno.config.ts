@@ -1,20 +1,16 @@
-import CelesteIcons from '@youcan/celeste-icons/icons.json';
+import CelesteIcons from '@youcan/celeste-icons/icons.json'
 
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
-  presetTypography,
   presetWind4,
   transformerDirectives,
   transformerVariantGroup,
-} from 'unocss';
+} from 'unocss'
 
 export default defineConfig({
   presets: [
     presetWind4(),
-    presetTypography(),
-    presetAttributify(),
     presetIcons({
       scale: 1.2,
       warn: true,
@@ -28,4 +24,4 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-});
+})
