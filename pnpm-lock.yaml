@@ -26,6 +26,9 @@ importers:
       '@youcan/qantra':
         specifier: latest
         version: 1.0.0-beta.16
+      baseline-browser-mapping:
+        specifier: ^2.9.11
+        version: 2.9.11
       isbot:
         specifier: ^5.1.30
         version: 5.1.30
@@ -2584,10 +2587,6 @@ packages:
   base64id@2.0.0:
     resolution: {integrity: sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==}
     engines: {node: ^4.5.0 || >= 5.9}
-
-  baseline-browser-mapping@2.8.4:
-    resolution: {integrity: sha512-L+YvJwGAgwJBV1p6ffpSTa2KRc69EeeYGYjRVWKs0GKrK+LON0GC0gV+rKSNtALEDvMDqkvCFq9r1r94/Gjwxw==}
-    hasBin: true
 
   baseline-browser-mapping@2.9.11:
     resolution: {integrity: sha512-Sg0xJUNDU1sJNGdfGWhVHX0kkZ+HWcvmVymJbj6NSgZZmW/8S9Y2HQ5euytnIgakgxN6papOAWiwDo1ctFDcoQ==}
@@ -9959,8 +9958,6 @@ snapshots:
 
   base64id@2.0.0: {}
 
-  baseline-browser-mapping@2.8.4: {}
-
   baseline-browser-mapping@2.9.11: {}
 
   big-integer@1.6.52: {}
@@ -10000,7 +9997,7 @@ snapshots:
 
   browserslist@4.26.2:
     dependencies:
-      baseline-browser-mapping: 2.8.4
+      baseline-browser-mapping: 2.9.11
       caniuse-lite: 1.0.30001743
       electron-to-chromium: 1.5.218
       node-releases: 2.0.21

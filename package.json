@@ -27,6 +27,7 @@
     "@youcan/celeste-icons": "latest",
     "@youcan/celeste-tokens": "latest",
     "@youcan/qantra": "latest",
+    "baseline-browser-mapping": "^2.9.11",
     "isbot": "^5.1.30",
     "jsonwebtoken": "^9.0.2",
     "nuxt": "^4.1.2",
