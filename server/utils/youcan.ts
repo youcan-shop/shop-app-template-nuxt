@@ -1,4 +1,4 @@
-import { client, type YouCanClient } from '~~/lib/storeadmin-api';
+import { client, type YouCanClient } from '~~/lib/youcan';
 
 const youcanProxy = {
   get(_target: unknown, prop: string) {

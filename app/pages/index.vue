@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { data: store } = await useApi('/api/store');
+const { data: orders } = await useApi('/api/products');
 </script>
 
 <template>
   <div>
-    <h1>Hello</h1>
-    {{ store }}
+    <h1>Orders</h1>
+    <pre>{{ orders?.id }}</pre>
   </div>
 </template>
