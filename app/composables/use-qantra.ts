@@ -1,5 +1,5 @@
 export function useQantra() {
-  const { $qantra } = useNuxtApp()
+  const { $qantra } = useNuxtApp();
 
-  return $qantra
+  return $qantra;
 }

@@ -1,18 +1,18 @@
 export interface TokenExchangeResponse {
-  access_token: string
-  expires_in: number
+  access_token: string;
+  expires_in: number;
 }
 
 export interface SessionTokenPayload {
-  iss: string
-  dest: string
-  aud: string
-  sub: string
-  str: string
-  jti: string
-  sid: string
-  iat: number
-  nbf: number
-  exp: number
-  sig: string
+  iss: string;
+  dest: string;
+  aud: string;
+  sub: string;
+  str: string;
+  jti: string;
+  sid: string;
+  iat: number;
+  nbf: number;
+  exp: number;
+  sig: string;
 }

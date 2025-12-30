@@ -1,4 +1,4 @@
-import CelesteIcons from '@youcan/celeste-icons/icons.json'
+import CelesteIcons from '@youcan/celeste-icons/icons.json';
 
 import {
   defineConfig,
@@ -6,7 +6,7 @@ import {
   presetWind4,
   transformerDirectives,
   transformerVariantGroup,
-} from 'unocss'
+} from 'unocss';
 
 export default defineConfig({
   presets: [
@@ -24,4 +24,4 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-})
+});

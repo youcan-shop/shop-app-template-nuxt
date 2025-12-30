@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Sonner } from '@youcan/celeste'
+import { Sonner } from '@youcan/celeste';
 </script>
 
 <template>

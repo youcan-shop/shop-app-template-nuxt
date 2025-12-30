@@ -1,5 +1,5 @@
-import process from 'node:process'
-import { defineNuxtConfig } from 'nuxt/config'
+import process from 'node:process';
+import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -40,4 +40,4 @@ export default defineNuxtConfig({
       allowedHosts: true,
     },
   },
-})
+});
