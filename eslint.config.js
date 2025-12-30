@@ -1,6 +1,6 @@
-import antfu from '@antfu/eslint-config'
+import youcan from '@youcan/lint';
 
-export default antfu({
+export default youcan({
   formatters: true,
   unocss: true,
   vue: true,
@@ -9,4 +9,4 @@ export default antfu({
     'youcan.app.json',
     '.nuxt',
   ],
-})
+});
