@@ -232,3 +232,16 @@ export interface CreateRecurringChargeRequest {
   plans: CreateRecurringChargePlan[];
   test?: boolean;
 }
+
+export type WebhookEvent = 'order.create' | 'inventory.low' | 'upsell.accept' | 'app.uninstalled';
+
+export interface WebhookSubscription {
+  id: string;
+  event: WebhookEvent;
+  target_url: string;
+}
+
+export interface CreateWebhookSubscriptionRequest {
+  event: WebhookEvent;
+  target_url: string;
+}

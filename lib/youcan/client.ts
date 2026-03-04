@@ -4,6 +4,7 @@ import { ofetch } from 'ofetch';
 import { BillingResource } from './resources/billing';
 import { OrderResource } from './resources/order';
 import { ProductResource } from './resources/product';
+import { WebhookResource } from './resources/webhook';
 
 export interface YouCanClientOptions {
   token: string;
@@ -14,11 +15,13 @@ export class StoreContext {
   public products: ProductResource;
   public orders: OrderResource;
   public billing: BillingResource;
+  public webhooks: WebhookResource;
 
   constructor(private request: <T>(endpoint: string, options?: any) => Promise<T>) {
     this.products = new ProductResource(request);
     this.orders = new OrderResource(request);
     this.billing = new BillingResource(request);
+    this.webhooks = new WebhookResource(request);
   }
 
   public async info(): Promise<Store> {

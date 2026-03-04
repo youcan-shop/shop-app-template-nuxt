@@ -13,8 +13,14 @@ export default defineEventHandler(async (event) => {
     session = await prisma.session.create({
       data: {
         id: payload.session,
-        storeId: payload.store,
+        store: payload.store,
       },
+    });
+  }
+  else {
+    session = await prisma.session.update({
+      where: { id: payload.session },
+      data: { accessToken: null, registeredWebhooks: null },
     });
   }
 

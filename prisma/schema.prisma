@@ -7,12 +7,13 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url = "file:./dev.db"
+  url      = "file:./dev.db"
 }
 
 model Session {
-  id          String    @id
-  storeId     String
-  scope       String?
-  accessToken String?
+  id                 String  @id
+  store              String
+  scope              String?
+  accessToken        String?
+  registeredWebhooks String?
 }
