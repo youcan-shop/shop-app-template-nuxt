@@ -9,4 +9,7 @@ export default youcan({
     'youcan.app.json',
     '.nuxt',
   ],
+  rules: {
+    'vue/object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }],
+  },
 });

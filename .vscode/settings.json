@@ -53,5 +53,6 @@
   "cssvar.files": [
     "**/*.css"
   ],
-  "cssvar.ignore": []
+  "cssvar.ignore": [],
+  "prisma.pinToPrisma6": true
 }
