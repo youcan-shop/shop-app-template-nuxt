@@ -1,10 +1,10 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@9.15.9",
   "engines": {
     "node": ">=22.0.0",
-    "pnpm": ">=11.0.0"
+    "pnpm": "^9.0.0"
   },
   "scripts": {
     "build": "nuxt build",
@@ -55,6 +55,21 @@
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "unocss": "^66.5.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "mmap-io",
+      "prisma",
+      "shmmap",
+      "simple-git-hooks",
+      "unrs-resolver",
+      "vue-demi",
+      "yarn"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
