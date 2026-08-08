@@ -21,7 +21,6 @@ logs
 /app/generated/prisma
 /prisma/dev.db
 
-youcan.app.json
 
 .stylelintcache
 .eslintcache

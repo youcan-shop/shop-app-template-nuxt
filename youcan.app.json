@@ -1,0 +1,20 @@
+{
+    "name": "shop-app",
+    "app_url": null,
+    "redirect_urls": [],
+    "webhooks": [
+        {
+            "topic": "order.created",
+            "address": "/webhooks/order.created"
+        },
+        {
+            "topic": "app.uninstalled",
+            "address": "/webhooks/app.uninstalled"
+        }
+    ],
+    "oauth": {
+        "scopes": [
+            "*"
+        ]
+    }
+}
