@@ -233,7 +233,20 @@ export interface CreateRecurringChargeRequest {
   test?: boolean;
 }
 
-export type WebhookEvent = 'order.create' | 'inventory.low' | 'upsell.accept' | 'app.uninstalled';
+export type WebhookEvent =
+  | 'order.created'
+  | 'order.updated'
+  | 'order.paid'
+  | 'upsell.accepted'
+  | 'product.inventory.low'
+  | 'app.uninstalled'
+  | 'app.charge_updated';
+
+export interface WebhookPayload<T = unknown> {
+  event_name: WebhookEvent;
+  event_happened_at: string;
+  data: T;
+}
 
 export interface WebhookSubscription {
   id: string;
