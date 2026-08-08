@@ -68,10 +68,10 @@ importers:
         version: 66.5.1(magicast@0.3.5)(postcss@8.5.6)(vite@7.1.5(@types/node@26.2.0)(jiti@2.5.1)(terser@5.49.2)(yaml@2.8.1))(webpack@5.101.3(esbuild@0.27.2)(postcss@8.5.6))
       '@youcan/app':
         specifier: latest
-        version: 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
+        version: 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
       '@youcan/cli':
         specifier: latest
-        version: 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
+        version: 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
       '@youcan/lint':
         specifier: ^3.1.0
         version: 3.1.0(@typescript-eslint/utils@8.51.0(eslint@9.39.2(jiti@2.5.1))(typescript@5.9.2))(@unocss/eslint-plugin@66.5.1(eslint@9.39.2(jiti@2.5.1))(typescript@5.9.2))(@vue/compiler-sfc@3.5.21)(eslint-plugin-format@1.0.1(eslint@9.39.2(jiti@2.5.1)))(eslint@9.39.2(jiti@2.5.1))(typescript@5.9.2)(vitest@4.0.16(@types/node@26.2.0)(jiti@2.5.1)(terser@5.49.2)(yaml@2.8.1))
@@ -2650,8 +2650,8 @@ packages:
   '@xtuc/long@4.2.2':
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
 
-  '@youcan/app@2.11.0':
-    resolution: {integrity: sha512-+gogWwK7rQeezqwoQ+JVAcEeI5jEiq+iUY4Lnwz+y8TaCQhK7dXnVO0cGCso/TViCROIfLWRN+b68RfcE7pdhA==}
+  '@youcan/app@2.12.0':
+    resolution: {integrity: sha512-IwBc/qGvPijnpsJirR+WBCWHXHEuGDGWAczcij/anqMswmkYBxJUfNg+Qdcg9+A6k1nZZEuPYYS9cEePJKu63g==}
 
   '@youcan/celeste-icons@0.9.2':
     resolution: {integrity: sha512-CX/Ah/Vw+PjqW8O0jmkOsWeTHj+tQqCBbFneK8roPMM8vQPDYUX+ime5DzuZyx6ZHtVF+2xQLG+GZj+NiBp53Q==}
@@ -2667,11 +2667,11 @@ packages:
     peerDependencies:
       vue: ^3.5.13
 
-  '@youcan/cli-kit@2.11.0':
-    resolution: {integrity: sha512-4XwkCy/Umk/KE0YSBlmBQjh0El2NsDjvMTyaQdPZRZlWzds3a2i9wWnZHP8YFOSszRNxbijqeXD4v/XGGw25xw==}
+  '@youcan/cli-kit@2.12.0':
+    resolution: {integrity: sha512-MyaBNREBBtaNLHIQZtDaD+Np6lyblQjZi4dZ4viCFeDIOLewYYCQfjp2TKLlrdyebioKHe3hLEFrG912k/4ugQ==}
 
-  '@youcan/cli@2.11.0':
-    resolution: {integrity: sha512-eIqcxBCFY/KGD5tO6V1IqyCtsPth1dTBCUIq+gRYyDazSkUNEzFnQCBG8fneNqWV5UbxHIHBy2254GJwa6jG+w==}
+  '@youcan/cli@2.12.0':
+    resolution: {integrity: sha512-KwBZ9pKaeRmLdSVpInSn0BO9shVRAj09Kw9vKJ4Uzpti9JAeD76GWsUlE0YXMxzWwCt2+dCUUW5thLeaTfuSwA==}
     hasBin: true
 
   '@youcan/lint@3.1.0':
@@ -2723,8 +2723,8 @@ packages:
   '@youcan/qantra@1.0.0-beta.16':
     resolution: {integrity: sha512-NzT3Ti4zku0cJenGCwYgZNIz6yhNUi9K55PArMvopcxSgvfDJDFAZDF3M5TUm48lssz7qY1CAchfWUeKx54mTw==}
 
-  '@youcan/theme@2.11.0':
-    resolution: {integrity: sha512-jBJlQiDEVBqa9KNhI4Jxzjoteuu7KtdEW3NUXBJPcPlThEGVtmic6zEFOL8wKGSD5DNyijLVw9igP5QzNxrEwg==}
+  '@youcan/theme@2.12.0':
+    resolution: {integrity: sha512-H1PSSz9o+GwTYJ2M8ATRgdgKT3k6JFwADBn5+/v+hQBxF9Vhp+Sp+xkpHNdZpf24NyLyhldGvu07VKPSubQEHw==}
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -10331,10 +10331,10 @@ snapshots:
 
   '@xtuc/long@4.2.2': {}
 
-  '@youcan/app@2.11.0(@types/node@26.2.0)(typescript@5.9.2)':
+  '@youcan/app@2.12.0(@types/node@26.2.0)(typescript@5.9.2)':
     dependencies:
       '@oclif/core': 2.16.0(@types/node@26.2.0)(typescript@5.9.2)
-      '@youcan/cli-kit': 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
+      '@youcan/cli-kit': 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
       dayjs: 1.11.21
     transitivePeerDependencies:
       - '@swc/core'
@@ -10381,7 +10381,7 @@ snapshots:
       - '@vue/composition-api'
       - nuxt
 
-  '@youcan/cli-kit@2.11.0(@types/node@26.2.0)(typescript@5.9.2)':
+  '@youcan/cli-kit@2.12.0(@types/node@26.2.0)(typescript@5.9.2)':
     dependencies:
       '@oclif/core': 2.16.0(@types/node@26.2.0)(typescript@5.9.2)
       archiver: 5.3.2
@@ -10420,15 +10420,15 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@youcan/cli@2.11.0(@types/node@26.2.0)(typescript@5.9.2)':
+  '@youcan/cli@2.12.0(@types/node@26.2.0)(typescript@5.9.2)':
     dependencies:
       '@oclif/core': 2.16.0(@types/node@26.2.0)(typescript@5.9.2)
       '@oclif/plugin-commands': 2.2.28(@types/node@26.2.0)(typescript@5.9.2)
       '@oclif/plugin-help': 5.2.20(@types/node@26.2.0)(typescript@5.9.2)
       '@oclif/plugin-plugins': 3.10.1(@types/node@26.2.0)(typescript@5.9.2)
-      '@youcan/app': 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
-      '@youcan/cli-kit': 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
-      '@youcan/theme': 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
+      '@youcan/app': 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
+      '@youcan/cli-kit': 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
+      '@youcan/theme': 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -10492,10 +10492,10 @@ snapshots:
 
   '@youcan/qantra@1.0.0-beta.16': {}
 
-  '@youcan/theme@2.11.0(@types/node@26.2.0)(typescript@5.9.2)':
+  '@youcan/theme@2.12.0(@types/node@26.2.0)(typescript@5.9.2)':
     dependencies:
       '@oclif/core': 2.16.0(@types/node@26.2.0)(typescript@5.9.2)
-      '@youcan/cli-kit': 2.11.0(@types/node@26.2.0)(typescript@5.9.2)
+      '@youcan/cli-kit': 2.12.0(@types/node@26.2.0)(typescript@5.9.2)
       debounce: 2.2.0
       socket.io: 4.8.3
     transitivePeerDependencies:
