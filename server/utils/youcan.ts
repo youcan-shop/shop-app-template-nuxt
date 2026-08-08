@@ -31,7 +31,7 @@ const youcanProxy = {
           if (error.response?.status === 401 && event.context.session?.id) {
             await prisma.session.update({
               where: { id: event.context.session.id },
-              data: { accessToken: null, registeredWebhooks: null },
+              data: { accessToken: null },
             });
             event.context.session.accessToken = null;
           }

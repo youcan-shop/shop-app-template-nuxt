@@ -2,7 +2,7 @@
 import type { Order } from '~~/lib/youcan';
 
 export default defineNitroPlugin(() => {
-  defineWebhookHandler('order.create', async (payload) => {
+  defineWebhookHandler('order.created', async (payload) => {
     const order = payload as Order;
 
     console.log('[Webhook] New order received');
@@ -19,7 +19,7 @@ export default defineNitroPlugin(() => {
 
     await prisma.session.updateMany({
       where: { store: data.store_slug },
-      data: { accessToken: null, registeredWebhooks: null },
+      data: { accessToken: null },
     });
   });
 });

@@ -15,5 +15,4 @@ model Session {
   store              String
   scope              String?
   accessToken        String?
-  registeredWebhooks String?
 }

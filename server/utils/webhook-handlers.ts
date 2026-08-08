@@ -11,10 +11,6 @@ export function defineWebhookHandler<T = unknown>(event: WebhookEvent, handler: 
   registry.set(event, handlers);
 }
 
-export function getRegisteredWebhookEvents(): WebhookEvent[] {
-  return Array.from(registry.keys()) as WebhookEvent[];
-}
-
 export async function dispatchWebhook(eventName: string, payload: unknown, h3Event: H3Event): Promise<void> {
   const handlers = registry.get(eventName) ?? [];
 

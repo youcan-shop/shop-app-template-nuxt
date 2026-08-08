@@ -1,0 +1,7 @@
+{
+    "name": "shop-app",
+    "webhooks": [
+        { "topic": "order.created", "address": "/webhooks/order.created" },
+        { "topic": "app.uninstalled", "address": "/webhooks/app.uninstalled" }
+    ]
+}
