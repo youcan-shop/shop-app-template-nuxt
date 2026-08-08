@@ -8,8 +8,8 @@
   },
   "scripts": {
     "build": "nuxt build",
-    "predev": "prisma generate && prisma migrate deploy",
-    "dev": "pnpm nuxt prepare && youcan app dev",
+    "dev": "youcan app dev",
+    "web:dev": "prisma generate && prisma migrate deploy && nuxt dev",
     "generate": "youcan app generate",
     "youcan": "youcan",
     "nuxt": "nuxt",
