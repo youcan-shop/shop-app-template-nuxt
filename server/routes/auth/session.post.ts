@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
   else {
     session = await prisma.session.update({
       where: { id: payload.session },
-      data: { accessToken: null, registeredWebhooks: null },
+      data: { accessToken: null },
     });
   }
 

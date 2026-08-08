@@ -33,23 +33,6 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    const desiredWebhooks = getRegisteredWebhookEvents().sort().join(',');
-
-    if (session.registeredWebhooks !== desiredWebhooks && session.accessToken) {
-      await registerWebhooks(session.accessToken)
-        .then(async () => {
-          if (session) {
-            session = await prisma.session.update({
-              where: { id: session.id },
-              data: { registeredWebhooks: desiredWebhooks },
-            });
-          }
-        })
-        .catch((err) => {
-          console.error('Failed to register webhooks automatically:', err);
-        });
-    }
-
     event.context.session = session;
     return;
   }
