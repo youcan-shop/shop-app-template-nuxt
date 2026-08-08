@@ -1,3 +1,4 @@
+import type { WebhookPayload } from '~~/lib/youcan';
 import { Buffer } from 'node:buffer';
 import crypto from 'node:crypto';
 
@@ -34,8 +35,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: 'Invalid signature' });
   }
 
-  const payload = JSON.parse(rawBody);
-  await dispatchWebhook(eventName, payload, event);
+  const payload = JSON.parse(rawBody) as WebhookPayload;
+  await dispatchWebhook(eventName, payload.data, event);
 
   return { ok: true };
 });
