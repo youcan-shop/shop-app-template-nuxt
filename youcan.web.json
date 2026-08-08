@@ -5,6 +5,6 @@
     "server"
   ],
   "commands": {
-    "dev": "npm exec nuxt dev"
+    "dev": "pnpm web:dev"
   }
 }
