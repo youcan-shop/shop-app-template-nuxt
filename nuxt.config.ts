@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    port: process.env.PROT,
+    port: process.env.PORT,
     appUrl: process.env.APP_URL,
     youcanApiKey: process.env.YOUCAN_API_KEY,
     youcanApiUrl: process.env.YOUCAN_API_URL,
