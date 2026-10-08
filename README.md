@@ -11,7 +11,7 @@ This template helps you build a Nuxt.js app embedded inside the YouCan seller ar
 
 - [Node.js](https://nodejs.org/en) and a Package Manager (rec. [pnpm](https://pnpm.io/)) installed ;
 - [YouCan Partner Account](https://partners.youcan.shop/): create one [here](https://partners.youcan.shop) ;
-- [Development Store](https://developer.youcan.shop/partners/development-store) to preview and test the app.
+- [Development Store](https://docs.youcan.shop/partners/development-store) to preview and test the app.
 
 ## Getting Started
 

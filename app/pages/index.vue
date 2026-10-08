@@ -45,7 +45,7 @@ const { data: product, pending, execute: generateProduct } = useApi('/api/produc
       <p class="text-text-sub-600">
         Generate a product using the YouCan REST API and get the JSON response. Learn more about product creation in our
         <LinkButton
-          href="https://developer.youcan.shop/store-admin/introduction/getting-started"
+          href="https://docs.youcan.shop/store-admin/introduction/getting-started"
           target="_blank"
           underline
           intent="gray"
@@ -143,7 +143,7 @@ const { data: product, pending, execute: generateProduct } = useApi('/api/produc
         <li>
           <span>API: </span>
           <LinkButton
-            href="https://developer.youcan.shop/store-admin/introduction/getting-started"
+            href="https://docs.youcan.shop/store-admin/introduction/getting-started"
             intent="black"
             target="_blank"
             underline
