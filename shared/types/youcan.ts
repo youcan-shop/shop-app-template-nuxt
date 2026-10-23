@@ -1,6 +1,15 @@
 export interface TokenExchangeResponse {
   access_token: string;
   expires_in: number;
+  associated_user_scope?: string;
+  associated_user?: {
+    id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    locale: string | null;
+    account_owner: boolean;
+  };
 }
 
 export interface SessionTokenPayload {

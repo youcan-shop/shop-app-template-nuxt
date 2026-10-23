@@ -37,12 +37,14 @@ export function hmac(subject: string, alg: string = 'sha256'): string {
   return hmac.update(subject).digest('hex');
 }
 
-export async function exchangeSessionToken(session: string) {
+export async function exchangeSessionToken(session: string, type: 'offline' | 'online' = 'offline') {
   const config = useRuntimeConfig();
 
   const query = new URLSearchParams({
-    session_token: session,
-    grant_type: 'token_exchange',
+    grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
+    subject_token: session,
+    subject_token_type: 'urn:ietf:params:oauth:token-type:id_token',
+    requested_token_type: `urn:youcan:params:oauth:token-type:${type}-access-token`,
     client_id: config.youcanApiKey,
     client_secret: config.youcanApiSecret,
   });
