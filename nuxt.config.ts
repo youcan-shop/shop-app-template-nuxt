@@ -1,5 +1,6 @@
 import process from 'node:process';
 import { defineNuxtConfig } from 'nuxt/config';
+import manifest from './youcan.app.json';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -20,6 +21,7 @@ export default defineNuxtConfig({
     youcanSellerAreaUrl: process.env.YOUCAN_SELLER_AREA_URL,
     youcanApiScopes: process.env.YOUCAN_API_SCOPES,
     youcanApiSecret: process.env.YOUCAN_API_SECRET,
+    youcanAppHandle: (manifest as { handle?: string }).handle,
   },
 
   routeRules: {

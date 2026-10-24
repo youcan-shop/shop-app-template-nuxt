@@ -1,25 +1,25 @@
 export default defineEventHandler(async (event) => {
-  const payload = await readBody<{
-    store: string;
-    session: string;
-    code?: string;
-  }>(event);
+  const launch = verifyLaunch(getRequestURL(event).searchParams);
+
+  if (!launch) {
+    throw createError({ statusCode: 401, statusMessage: 'Invalid signature' });
+  }
 
   let session = await prisma.session.findFirst({
-    where: { id: payload.session },
+    where: { id: launch.session },
   });
 
   if (!session) {
     session = await prisma.session.create({
       data: {
-        id: payload.session,
-        store: payload.store,
+        id: launch.session,
+        store: launch.store,
       },
     });
   }
   else {
     session = await prisma.session.update({
-      where: { id: payload.session },
+      where: { id: launch.session },
       data: { accessToken: null },
     });
   }

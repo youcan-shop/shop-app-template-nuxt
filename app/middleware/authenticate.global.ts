@@ -47,34 +47,22 @@ export default defineNuxtRouteMiddleware((to) => {
     return;
   }
 
-  const payload = getSessionFromSearch(url);
-
-  if (!payload) {
+  if (!verifyLaunch(url.searchParams)) {
     return navigateTo({
       path: '/auth/bounce',
       query: { 'youcan-reload': encodeURIComponent(url.href) },
     });
   }
 
+  const host = url.searchParams.get('host');
+  const handle = useRuntimeConfig().youcanAppHandle;
+
+  if (host && handle && event.headers.get('sec-fetch-dest') === 'document') {
+    return navigateTo(`https://${atob(host)}/apps/${handle}/app`, { external: true });
+  }
+
   $fetch<Session>(
     '/auth/session',
-    { body: payload, method: 'post' },
+    { method: 'post', query: Object.fromEntries(url.searchParams) },
   ).then(s => event.context.session = s);
 });
-
-function getSessionFromSearch(url: URL): { store: string; session: string; code?: string } | null {
-  const signature = url.searchParams.get('hmac');
-  if (!signature) {
-    return null;
-  }
-
-  url.searchParams.delete('hmac');
-  if (hmac(url.searchParams.toString()) !== signature) {
-    return null;
-  }
-
-  return {
-    store: url.searchParams.get('store')!,
-    session: url.searchParams.get('session')!,
-  };
-}

@@ -1,40 +1,29 @@
-import type { Buffer } from 'node:buffer';
 import type { TokenExchangeResponse } from '~~/shared/types/youcan';
 import crypto from 'node:crypto';
 import { useRuntimeConfig } from '#imports';
-
-const ALG = 'aes-256-ecb';
-
-export function encrypt(subject: string) {
-  const { youcanApiSecret } = useRuntimeConfig();
-
-  const cipher = crypto.createCipheriv(ALG, sha256(youcanApiSecret), null);
-
-  let encrypted = cipher.update(subject, 'utf8', 'hex');
-  encrypted += cipher.final('hex');
-
-  return encrypted;
-}
-
-export function decrypt(crypt: string) {
-  const { youcanApiSecret } = useRuntimeConfig();
-
-  const decipher = crypto.createDecipheriv(ALG, sha256(youcanApiSecret), null);
-
-  let decrypted = decipher.update(crypt, 'hex', 'utf8');
-  decrypted += decipher.final('utf8');
-
-  return decrypted;
-}
-
-export function sha256(subject: string): Buffer {
-  return crypto.createHash('sha256').update(subject).digest();
-}
 
 export function hmac(subject: string, alg: string = 'sha256'): string {
   const { youcanApiSecret } = useRuntimeConfig();
   const hmac = crypto.createHmac(alg, youcanApiSecret);
   return hmac.update(subject).digest('hex');
+}
+
+export function verifyLaunch(search: URLSearchParams): { store: string; session: string } | null {
+  const signature = search.get('hmac');
+  const store = search.get('store');
+  const session = search.get('session');
+
+  if (!signature || !store || !session || Math.abs(Date.now() / 1000 - Number(search.get('timestamp'))) > 90) {
+    return null;
+  }
+
+  const signed = new URLSearchParams(search);
+  signed.delete('hmac');
+
+  const expected = new TextEncoder().encode(hmac(signed.toString()));
+  const received = new TextEncoder().encode(signature);
+
+  return expected.length === received.length && crypto.timingSafeEqual(expected, received) ? { store, session } : null;
 }
 
 export async function exchangeSessionToken(session: string, type: 'offline' | 'online' = 'offline') {
@@ -49,11 +38,8 @@ export async function exchangeSessionToken(session: string, type: 'offline' | 'o
     client_secret: config.youcanApiSecret,
   });
 
-  const res = await fetch(`${config.youcanApiUrl}/oauth/token`, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  return $fetch<TokenExchangeResponse>(`${config.youcanApiUrl}/oauth/token`, {
     method: 'POST',
     body: query,
   });
-
-  return (await res.json()) as TokenExchangeResponse;
 }

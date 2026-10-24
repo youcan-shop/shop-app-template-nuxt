@@ -9,7 +9,23 @@ export default defineEventHandler(async (event) => {
 
   if (authHeader) {
     const token = authHeader.replace('Bearer ', '');
-    const payload = jwt.verify(token, config.youcanApiSecret) as SessionTokenPayload;
+    const retry = () => {
+      setResponseHeader(event, 'x-youcan-retry-invalid-session-request', '1');
+      return createError({ statusCode: 401, statusMessage: 'Invalid session token' });
+    };
+
+    let payload: SessionTokenPayload;
+
+    try {
+      payload = jwt.verify(token, config.youcanApiSecret, { audience: config.youcanApiKey }) as SessionTokenPayload;
+    }
+    catch {
+      throw retry();
+    }
+
+    if (payload.iss !== `${payload.dest}/admin`) {
+      throw retry();
+    }
 
     let session = await prisma.session.findFirst({
       where: { id: payload.sid },
@@ -25,7 +41,9 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!session.accessToken) {
-      const { access_token } = await exchangeSessionToken(token);
+      const { access_token } = await exchangeSessionToken(token).catch(() => {
+        throw retry();
+      });
 
       session = await prisma.session.update({
         where: { id: session.id },
@@ -37,14 +55,14 @@ export default defineEventHandler(async (event) => {
     return;
   }
 
-  const sessionId = getQuery(event).session as string | undefined;
+  const launch = verifyLaunch(new URLSearchParams(event.headers.get('x-youcan-launch') ?? getRequestURL(event).search));
 
-  if (sessionId) {
+  if (launch) {
     const session = await prisma.session.findFirst({
-      where: { id: sessionId },
+      where: { id: launch.session },
     });
 
-    if (session?.accessToken) {
+    if (session?.accessToken && session.store === launch.store) {
       event.context.session = session;
     }
   }
