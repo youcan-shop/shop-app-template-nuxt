@@ -25,7 +25,7 @@ importers:
         version: 0.9.2
       '@youcan/qantra':
         specifier: latest
-        version: 1.0.0-beta.16
+        version: 1.0.0-beta.17
       baseline-browser-mapping:
         specifier: ^2.9.11
         version: 2.10.0
@@ -2720,8 +2720,8 @@ packages:
       svelte-eslint-parser:
         optional: true
 
-  '@youcan/qantra@1.0.0-beta.16':
-    resolution: {integrity: sha512-NzT3Ti4zku0cJenGCwYgZNIz6yhNUi9K55PArMvopcxSgvfDJDFAZDF3M5TUm48lssz7qY1CAchfWUeKx54mTw==}
+  '@youcan/qantra@1.0.0-beta.17':
+    resolution: {integrity: sha512-tYuL2Olchuax+QgM1all3H3HHnbSr6krm/KLu6CT/srEaAUj6E8PVUTjl6JWkzhgaiuralR/q11XY2G2EMiTCQ==}
 
   '@youcan/theme@2.12.0':
     resolution: {integrity: sha512-H1PSSz9o+GwTYJ2M8ATRgdgKT3k6JFwADBn5+/v+hQBxF9Vhp+Sp+xkpHNdZpf24NyLyhldGvu07VKPSubQEHw==}
@@ -10490,7 +10490,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@youcan/qantra@1.0.0-beta.16': {}
+  '@youcan/qantra@1.0.0-beta.17': {}
 
   '@youcan/theme@2.12.0(@types/node@26.2.0)(typescript@5.9.2)':
     dependencies:

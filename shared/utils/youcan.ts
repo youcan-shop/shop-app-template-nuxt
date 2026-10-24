@@ -37,6 +37,24 @@ export function hmac(subject: string, alg: string = 'sha256'): string {
   return hmac.update(subject).digest('hex');
 }
 
+export function verifyLaunch(search: URLSearchParams): { store: string; session: string } | null {
+  const signature = search.get('hmac');
+  const store = search.get('store');
+  const session = search.get('session');
+
+  if (!signature || !store || !session) {
+    return null;
+  }
+
+  const signed = new URLSearchParams(search);
+  signed.delete('hmac');
+
+  const expected = new TextEncoder().encode(hmac(signed.toString()));
+  const received = new TextEncoder().encode(signature);
+
+  return expected.length === received.length && crypto.timingSafeEqual(expected, received) ? { store, session } : null;
+}
+
 export async function exchangeSessionToken(session: string, type: 'offline' | 'online' = 'offline') {
   const config = useRuntimeConfig();
 
@@ -49,11 +67,8 @@ export async function exchangeSessionToken(session: string, type: 'offline' | 'o
     client_secret: config.youcanApiSecret,
   });
 
-  const res = await fetch(`${config.youcanApiUrl}/oauth/token`, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  return $fetch<TokenExchangeResponse>(`${config.youcanApiUrl}/oauth/token`, {
     method: 'POST',
     body: query,
   });
-
-  return (await res.json()) as TokenExchangeResponse;
 }

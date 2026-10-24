@@ -3,13 +3,9 @@ export default defineNuxtPlugin(() => {
     onRequest({ options }) {
       if (import.meta.server) {
         try {
-          const url = useRequestURL();
-          const sessionId = url.searchParams.get('session');
-
-          if (sessionId) {
-            options.query = options.query || {};
-            (options.query as Record<string, unknown>).session = sessionId;
-          }
+          const headers = new Headers(options.headers);
+          headers.set('x-youcan-launch', useRequestURL().search);
+          options.headers = headers;
         }
         catch {
         }
